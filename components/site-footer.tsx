@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function SiteFooter() {
   return (
     <footer className="border-t border-zinc-200 bg-[#111] text-zinc-300">
@@ -10,15 +12,17 @@ export function SiteFooter() {
         </div>
         <div className="space-y-2 text-sm">
           <p className="text-xs font-bold uppercase tracking-[0.08em] text-white">Explore</p>
-          <p>Home</p>
-          <p>Shop</p>
-          <p>Blog</p>
-          <p>Contact</p>
+          <p><Link href="/">Home</Link></p>
+          <p><Link href="/shop">Shop</Link></p>
+          <p><Link href="/blog">Blog</Link></p>
+          <p><Link href="/offers">Offers</Link></p>
+          <p><Link href="/contact">Contact</Link></p>
         </div>
         <div className="space-y-2 text-sm">
           <p className="text-xs font-bold uppercase tracking-[0.08em] text-white">Support</p>
-          <p>FAQs</p>
-          <p>Track order</p>
+          <p><Link href="/faqs">FAQs</Link></p>
+          <p><Link href="/wishlist">Wishlist</Link></p>
+          <p><Link href="/track-order">Track order</Link></p>
           <p>Privacy policy</p>
           <p>Terms & conditions</p>
         </div>

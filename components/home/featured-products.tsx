@@ -22,7 +22,10 @@ export function FeaturedProducts({
   return (
     <section className={`papzi-shell ${accent ? "papzi-accent-section" : ""}`}>
       <div className="papzi-section-head">
-        <h2>{title}</h2>
+        <div>
+          <p className="papzi-section-kicker">Curated menu</p>
+          <h2>{title}</h2>
+        </div>
         <Link href="/shop">View all</Link>
       </div>
       <div className="papzi-product-grid">

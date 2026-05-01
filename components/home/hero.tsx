@@ -14,12 +14,14 @@ export function Hero() {
         />
         <div className="papzi-hero-overlay" />
         <div className="papzi-hero-content">
+          <span className="papzi-hero-kicker">Hot deal</span>
           <h1>
             Combo Pizza
             <br />
             With Special Price
           </h1>
           <p>Buy any 2 large pizzas and get a 1.5L Pepsi free</p>
+          <div className="papzi-hero-discount">Up to 30% off this weekend</div>
           <Link href="/shop">Order now</Link>
         </div>
       </div>

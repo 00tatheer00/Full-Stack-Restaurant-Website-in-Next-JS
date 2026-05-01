@@ -19,28 +19,28 @@ export function ProductCard({ product }: { product: Product }) {
         ) : null}
       </div>
       <div className="papzi-product-meta">
-        <div className="flex items-start justify-between gap-3">
+        <div className="papzi-product-head">
           <div>
             <p>{product.category}</p>
             <h3>{product.name}</h3>
           </div>
         </div>
-        <p className="line-clamp-2 text-sm text-zinc-600">{product.description}</p>
-        <div className="flex items-center justify-between text-xs text-zinc-500">
+        <p className="papzi-product-desc line-clamp-2">{product.description}</p>
+        <div className="papzi-product-rating">
           <span>⭐ {product.rating.toFixed(1)}</span>
           <span>{product.eta}</span>
         </div>
-        <div>
+        <div className="papzi-product-actions">
           <span>${product.price.toFixed(2)}</span>
           <button
             onClick={() => addToCart(product)}
-            className="rounded-full border border-zinc-900 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.08em] transition hover:border-[#f1252b] hover:bg-[#f1252b] hover:text-white"
+            className="papzi-product-btn"
           >
             Add to cart
           </button>
           <Link
             href={`/shop/${product.slug}`}
-            className="rounded-full border border-zinc-300 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-zinc-700 transition hover:border-zinc-900 hover:text-zinc-900"
+            className="papzi-product-btn papzi-product-btn-muted"
           >
             Details
           </Link>

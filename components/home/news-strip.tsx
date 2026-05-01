@@ -6,7 +6,10 @@ export function NewsStrip() {
   return (
     <section className="papzi-shell papzi-news-wrap">
       <div className="papzi-section-head">
-        <h2>Latest News</h2>
+        <div>
+          <p className="papzi-section-kicker">Journal</p>
+          <h2>Latest News</h2>
+        </div>
         <Link href="/about">Read all</Link>
       </div>
       <div className="papzi-news-grid">

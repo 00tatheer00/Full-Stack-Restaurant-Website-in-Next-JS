@@ -1,6 +1,7 @@
 import { ProductCard } from "@/components/product-card";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { products as fallbackProducts } from "@/lib/products";
 
 export const dynamic = "force-dynamic";
 
@@ -11,24 +12,33 @@ type Props = {
 export default async function ShopPage({ searchParams }: Props) {
   const params = await searchParams;
   const selected = params.category ?? "All";
+  let categories = ["All", ...Array.from(new Set(fallbackProducts.map((item) => item.category)))];
+  let filtered =
+    selected === "All"
+      ? fallbackProducts
+      : fallbackProducts.filter((item) => item.category === selected);
 
-  const [allCategories, filtered] = await Promise.all([
-    prisma.product.findMany({
-      where: { active: true },
-      select: { category: true },
-      distinct: ["category"],
-      orderBy: { category: "asc" },
-    }),
-    prisma.product.findMany({
-      where:
-        selected === "All"
-          ? { active: true }
-          : { active: true, category: selected },
-      orderBy: { createdAt: "desc" },
-    }),
-  ]);
-
-  const categories = ["All", ...allCategories.map((entry) => entry.category)];
+  try {
+    const [allCategories, dbFiltered] = await Promise.all([
+      prisma.product.findMany({
+        where: { active: true },
+        select: { category: true },
+        distinct: ["category"],
+        orderBy: { category: "asc" },
+      }),
+      prisma.product.findMany({
+        where:
+          selected === "All"
+            ? { active: true }
+            : { active: true, category: selected },
+        orderBy: { createdAt: "desc" },
+      }),
+    ]);
+    categories = ["All", ...allCategories.map((entry) => entry.category)];
+    filtered = dbFiltered;
+  } catch {
+    // Fall back to static catalog when local DB is unavailable.
+  }
 
   return (
     <div className="papzi-shell py-10">

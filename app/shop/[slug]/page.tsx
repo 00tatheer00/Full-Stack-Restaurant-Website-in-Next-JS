@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { getProductBySlug } from "@/lib/products";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
@@ -12,9 +13,15 @@ type Props = {
 
 export default async function ProductDetailsPage({ params }: Props) {
   const resolved = await params;
-  const product = await prisma.product.findUnique({
-    where: { slug: resolved.slug, active: true },
-  });
+  let product = null;
+
+  try {
+    product = await prisma.product.findUnique({
+      where: { slug: resolved.slug, active: true },
+    });
+  } catch {
+    product = getProductBySlug(resolved.slug) ?? null;
+  }
 
   if (!product) {
     notFound();

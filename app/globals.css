@@ -61,6 +61,17 @@ a {
   text-align: center;
 }
 
+.papzi-hero-kicker {
+  background: #fff;
+  border: 1px solid #272727;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .papzi-hero-content h1 {
   transform: rotate(-4deg);
   font-size: 80px;
@@ -77,6 +88,16 @@ a {
   padding: 8px 74px;
   font-size: 18px;
   font-weight: 500;
+}
+
+.papzi-hero-discount {
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 999px;
+  padding: 6px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .papzi-hero-content a {
@@ -148,6 +169,15 @@ a {
   font-weight: 700;
 }
 
+.papzi-section-kicker {
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #747474;
+}
+
 .papzi-section-head a {
   color: var(--papzi-red);
   font-size: 12px;
@@ -208,7 +238,24 @@ a {
   line-height: 1.2;
 }
 
-.papzi-product-meta div {
+.papzi-product-desc {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #5b5b5b;
+  line-height: 1.45;
+}
+
+.papzi-product-rating {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: #707070;
+}
+
+.papzi-product-actions {
   margin-top: 14px;
   display: flex;
   align-items: center;
@@ -216,26 +263,33 @@ a {
   gap: 8px;
 }
 
-.papzi-product-meta div span {
+.papzi-product-actions span {
   font-size: 18px;
   font-weight: 700;
   color: var(--papzi-red);
 }
 
-.papzi-product-meta div a {
+.papzi-product-btn {
   border: 1px solid #272727;
   border-radius: 999px;
-  padding: 5px 14px;
+  background: #fff;
+  padding: 6px 14px;
   font-size: 11px;
   font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.2s ease;
 }
 
-.papzi-product-meta div a:hover {
+.papzi-product-btn:hover {
   border-color: var(--papzi-red);
   background: var(--papzi-red);
   color: #fff;
+}
+
+.papzi-product-btn-muted {
+  border-color: #c9c9c9;
+  color: #575757;
 }
 
 .papzi-promo-grid {
@@ -428,6 +482,115 @@ a {
   gap: 24px;
 }
 
+.papzi-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.papzi-service-item {
+  border: 1px solid var(--papzi-border);
+  border-radius: 20px;
+  background: #fff;
+  padding: 20px;
+}
+
+.papzi-service-item span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #fff3ee;
+  border: 1px solid #ffd7c7;
+  color: #d44d2f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.papzi-service-item h3 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.papzi-service-item p {
+  margin-top: 8px;
+  color: #646464;
+  font-size: 14px;
+}
+
+.papzi-app-cta {
+  border: 1px solid var(--papzi-border);
+  border-radius: 30px;
+  background: linear-gradient(130deg, #ffe6d8 0%, #fff6ee 100%);
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.papzi-app-cta > div > p {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #7a7a7a;
+}
+
+.papzi-app-cta h2 {
+  margin-top: 8px;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 900;
+  max-width: 680px;
+}
+
+.papzi-app-sub {
+  margin-top: 10px;
+  color: #5f5f5f;
+}
+
+.papzi-app-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.papzi-app-actions a {
+  border: 1px solid #272727;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.2s ease;
+}
+
+.papzi-app-actions a:hover {
+  border-color: var(--papzi-red);
+  background: var(--papzi-red);
+  color: #fff;
+}
+
+.papzi-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.papzi-gallery-item {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+
 @media (max-width: 1199px) {
   .papzi-hero,
   .papzi-hero-content {
@@ -461,6 +624,23 @@ a {
   .papzi-product-detail {
     grid-template-columns: 1fr;
   }
+
+  .papzi-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .papzi-app-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .papzi-app-cta h2 {
+    font-size: 34px;
+  }
+
+  .papzi-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 767px) {
@@ -476,6 +656,11 @@ a {
 
   .papzi-hero-content {
     gap: 12px;
+  }
+
+  .papzi-hero-kicker,
+  .papzi-hero-discount {
+    font-size: 10px;
   }
 
   .papzi-hero-content h1 {
@@ -535,5 +720,22 @@ a {
 
   .papzi-testimonial-bg {
     padding: 60px 0;
+  }
+
+  .papzi-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .papzi-app-cta {
+    border-radius: 24px;
+    padding: 24px;
+  }
+
+  .papzi-app-cta h2 {
+    font-size: 28px;
+  }
+
+  .papzi-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
